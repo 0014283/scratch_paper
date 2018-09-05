@@ -1,0 +1,2 @@
+class PaperImage < ApplicationRecord
+end

@@ -1,0 +1,2 @@
+class PaperAlbum < ApplicationRecord
+end
