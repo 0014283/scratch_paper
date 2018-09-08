@@ -36,7 +36,9 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       t.index :name
       t.string :email
       t.string :encrypted_password
-      t.string :user_image
+      t.string :user_image_id
+      t.text :content
+      t.index :content
       t.integer :privacy
       t.datetime :deleted_at
       t.datetime :created_at

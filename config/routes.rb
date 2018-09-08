@@ -10,11 +10,13 @@ Rails.application.routes.draw do
   registrations: 'users/registrations'
 }
 
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  root 'home#top'
 
   post 'paper_albums/:id/add_image' => 'peper_albums#add_item', as: :paper_albums_add_image
   patch 'paper_albums/:id/update_image' => 'paoer_albums#update_image', as: :paper_albums_update_image
   delete 'paper_albums/:id/delete_image' => 'paper_albums#delete_image', as: :paper_albums_delete_image
+  get 'home/top'
+  get 'home/about'
 
 
 
