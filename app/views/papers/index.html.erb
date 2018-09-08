@@ -1,0 +1,13 @@
+      <div class="clearfix">
+        <% @papers.each do |paper| %>
+        <div class="">
+          <dl>
+            <dd><h4><%= link_to paper_path(paper.id) do %><%= paper.title %><% end %></h4></dd>
+            <dd><%= paper.content %></dd>
+            <dd><%= paper.start_date %></dd>
+            <dd><%= paper.end_date %></dd>
+            <dd><%= paper.user.name %></dd>
+          </dl>
+        </div>
+        <% end %>
+      </div>
