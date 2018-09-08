@@ -1,0 +1,16 @@
+
+<%= @paper.title %>
+
+<%= @paper.content %>
+
+<% @genres.each do |genre| %><% if @paper.genre_id == genre.id %><%= genre.name %><% end %><% end %>
+
+<% unless @paper.start_date.blank? %><%= @paper.start_date.strftime("%Y年%-m月%-d日") %><% end %>
+<% if @paper.start_date.present? %>~
+<% elsif @paper.end_date.present? %>~
+<% end %>
+<% unless @paper.end_date.blank? %><%= @paper.end_date.strftime("%Y年%-m月%-d日") %><% end %>
+
+<%= @paper.user.name %>
+
+<%= link_to "削除", paper_path(@paper.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>

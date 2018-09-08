@@ -11,6 +11,7 @@ class PapersController < ApplicationController
 
 	def show
 		@paper = Paper.find(params[:id])
+		@genres = Genre.all
 	end
 
 	def create
@@ -21,19 +22,6 @@ class PapersController < ApplicationController
 			redirect_to my_list_user_path(@user.id)
 		else
 			render :new
-		end
-	end
-
-	def edit
-		@paper = Paper.find(params[:id])
-	end
-
-	def update
-		@paper = Paper.find(params[:id])
-		if @paper.update(paper_params)
-			redirect_to paper_path(@paper.id)
-		else
-			render :show
 		end
 	end
 
