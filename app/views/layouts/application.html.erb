@@ -9,7 +9,48 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
+  <header>
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <%= link_to "Scratchpaper", home_top_path, class:"navbar-brand" %>
+        </div>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbarEexample">
+        <ul class="nav navbar-right nav-pills">
+          <% if user_signed_in? %>
+          <li role="presentation">
+            <button type="button" class="btn btn-default navbar-btn"><%= link_to "投稿一覧", papers_path %></button>
+          </li>
+          <li role="presentation">
+            <button type="button" class="btn btn-default navbar-btn"><%= link_to "新規投稿", new_paper_path %></button>
+          </li>
+          <li role="presentation">
+            <button type="button" class="btn btn-default navbar-btn"><%= link_to "マイページ", my_list_user_path(current_user.id) %></button>
+          </li>
+          <% end %>
+          <li role="presentation">
+            <button type="button" class="btn btn-default navbar-btn"><%= link_to "Log in", new_user_session_path %></button>
+          </li>
+          <li role="presentation">
+            <button type="button" class="btn btn-default navbar-btn"><%= link_to "Sign Up", new_user_registration_path %></button>
+          </li>
+          <li role="presentation" >
+            <button type="button" class="btn btn-default navbar-btn"><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></button>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
   <body>
+    <div  class="box">
     <%= yield %>
+    </div>
   </body>
+
+  <footer>
+    <%= link_to "scratch paperとは", home_about_path %>
+  </footer>
 </html>

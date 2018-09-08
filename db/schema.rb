@@ -37,6 +37,8 @@ ActiveRecord::Schema.define(version: 2018_09_05_071605) do
   end
 
   create_table "interests", force: :cascade do |t|
+    t.integer "paper_id", null: false
+    t.integer "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -56,7 +58,7 @@ ActiveRecord::Schema.define(version: 2018_09_05_071605) do
 
   create_table "paper_images", force: :cascade do |t|
     t.integer "paper_album_id", null: false
-    t.string "image_name", null: false
+    t.string "image_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -98,11 +100,13 @@ ActiveRecord::Schema.define(version: 2018_09_05_071605) do
     t.string "current_sign_in_ip"
     t.string "last_sign_in_ip"
     t.string "name"
-    t.string "user_image"
+    t.string "user_image_id"
+    t.text "content"
     t.integer "privacy"
     t.datetime "deleted_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["content"], name: "index_users_on_content"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["name"], name: "index_users_on_name"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
