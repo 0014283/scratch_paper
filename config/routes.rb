@@ -28,7 +28,7 @@ Rails.application.routes.draw do
 
   delete '/users/:id' => 'users#destroy'
 
-  resources :papers do
+  resources :papers, only: [:new, :index, :show, :create, :destroy] do
   	resource :likes, only: [:create, :destroy]
   	resource :interests, only: [:create, :destroy]
   end
