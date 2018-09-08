@@ -42,6 +42,8 @@ group :development, :test do
   gem 'pry-rails'
   gem 'pry-byebug'
   gem 'pry-doc'
+  gem 'rspec-rails'
+  gem 'factory_bot_rails'
 end
 
 group :development do
@@ -77,8 +79,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
   gem 'jquery-ui-rails'
   # 論理削除用
   gem 'paranoia', '~> 2.3', '>= 2.3.1'
-  # テスト用
-  gem 'rspec-rails', '~> 3.6'
   # デプロイ用
   gem 'capistrano'
   gem 'capistrano-bundler'
