@@ -72,11 +72,11 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
   gem 'refile-mini_magick'
   gem 'kaminari'
   gem 'bootstrap-sass'
-  gem 'jquery-rails'
   gem 'enum_help'
   # jquery用
   gem 'jquery-rails'
   gem 'jquery-ui-rails'
+  gem 'jquery-turbolinks'
   # 論理削除用
   gem 'paranoia', '~> 2.3', '>= 2.3.1'
   # デプロイ用
