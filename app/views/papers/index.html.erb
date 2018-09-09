@@ -11,6 +11,11 @@
         <% unless paper.end_date.blank? %><%= paper.end_date.strftime("%Y年%-m月%-d日") %><% end %>
       </dd>
       <dd><%= paper.user.name %></dd>
+      <% @paper_images.each do |pi| %>
+      <% if paper.id == pi.paper_id %>
+      <dd><%= attachment_image_tag pi, :image, :fill, 200, 200, format: 'jpeg' %></dd>
+      <% end %>
+      <% end %>
     </dl>
   </div>
   <% end %>

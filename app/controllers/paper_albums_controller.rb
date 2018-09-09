@@ -1,2 +1,0 @@
-class PaperAlbumsController < ApplicationController
-end

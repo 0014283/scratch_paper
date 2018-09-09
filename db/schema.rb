@@ -50,14 +50,8 @@ ActiveRecord::Schema.define(version: 2018_09_05_071605) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "paper_albums", force: :cascade do |t|
-    t.integer "paper_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "paper_images", force: :cascade do |t|
-    t.integer "paper_album_id", null: false
+    t.integer "paper_id", null: false
     t.string "image_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
