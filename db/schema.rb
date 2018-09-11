@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_05_071605) do
+ActiveRecord::Schema.define(version: 2018_09_05_071549) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -57,7 +57,7 @@ ActiveRecord::Schema.define(version: 2018_09_05_071605) do
   end
 
   create_table "paper_images", force: :cascade do |t|
-    t.integer "paper_album_id", null: false
+    t.integer "paper_id", null: false
     t.string "image_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -76,16 +76,6 @@ ActiveRecord::Schema.define(version: 2018_09_05_071605) do
     t.index ["end_date"], name: "index_papers_on_end_date"
     t.index ["start_date"], name: "index_papers_on_start_date"
     t.index ["title"], name: "index_papers_on_title"
-  end
-
-  create_table "relationships", force: :cascade do |t|
-    t.integer "follower_id"
-    t.integer "following_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["follower_id", "following_id"], name: "index_relationships_on_follower_id_and_following_id", unique: true
-    t.index ["follower_id"], name: "index_relationships_on_follower_id"
-    t.index ["following_id"], name: "index_relationships_on_following_id"
   end
 
   create_table "users", force: :cascade do |t|
