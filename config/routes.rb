@@ -12,9 +12,6 @@ Rails.application.routes.draw do
 
   root 'home#top'
 
-  post 'paper_albums/:id/add_image' => 'peper_albums#add_item', as: :paper_albums_add_image
-  patch 'paper_albums/:id/update_image' => 'paoer_albums#update_image', as: :paper_albums_update_image
-  delete 'paper_albums/:id/delete_image' => 'paper_albums#delete_image', as: :paper_albums_delete_image
   get 'home/top'
   get 'home/about'
 
@@ -25,6 +22,7 @@ Rails.application.routes.draw do
   		get :following, :followers, :my_list, :interest_list, :following_list
     end
   end
+  resources :relationships, only: [:create, :destroy]
 
   delete '/users/:id' => 'users#destroy'
 
