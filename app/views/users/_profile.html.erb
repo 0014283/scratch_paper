@@ -7,9 +7,18 @@
 	<div  class=" user_content">
 	<%= @user.content %>
 	</div>
+	<% if user_signed_in? %>
+	<% if @user == current_user %>
 	<%= link_to "編集", edit_user_path(@user.id) %>
-	<%= link_to "フォローリスト", following_user_path(@user.id) %>
-	<%= link_to "フォロワーリスト", followers_user_path(@user.id) %>
+	<% else %>
+	<%= render 'follow_form' %>
+	<% end %>
+	<% end %>
+	<%= render 'stats' %>
+
+
+	<!-- <%#= link_to following_user_path(@user.id) do %><%#= @user.following.count %>フォロー<%# end %> -->
+	<!-- <%#= link_to followers_user_path(@user.id) do %><%#= @user.followers.count %>フォロワー<%# end %> -->
 
 <div class="collapse navbar-collapse" id="navbarEexample">
 	<ul class="nav nav-tabs nav-justified">

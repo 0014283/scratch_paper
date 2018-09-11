@@ -23,10 +23,14 @@ class UsersController < ApplicationController
 
 	def following
 		@user= User.find(params[:id])
+		@users = @user.followings
+		render 'following'
 	end
 
 	def followers
 		@user= User.find(params[:id])
+		@users = @user.followers
+		render 'followers'
 	end
 
 	def edit
@@ -39,6 +43,7 @@ class UsersController < ApplicationController
 			redirect_to my_list_user_path(@user)
 		end
 	end
+
 
 	private
 
