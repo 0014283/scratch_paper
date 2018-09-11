@@ -1,6 +1,7 @@
 class PaperImage < ApplicationRecord
-
+	belongs_to :paper
 	attachment :image
 
-	belongs_to :paper_album
+	validates :image, presence: true
+
 end

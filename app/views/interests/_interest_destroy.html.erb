@@ -1,0 +1,3 @@
+<%= link_to paper_interests_path(@paper), method: :delete, id: "interests_#{@paper.id}", remote: true do %>
+<span class="glyphicon glyphicon-bookmark green" aria-hidden="true"><%= @paper.interests.count %></span>
+<% end %>

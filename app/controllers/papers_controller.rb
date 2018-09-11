@@ -3,10 +3,12 @@ class PapersController < ApplicationController
 
 	def index
 		@papers = Paper.all
+		@paper_images = PaperImage.all
 	end
 
 	def new
 		@paper = Paper.new
+		@paper.paper_images.build
 	end
 
 	def show
@@ -37,6 +39,7 @@ class PapersController < ApplicationController
 	private
 
 	def paper_params
-		params.require(:paper).permit(:title,:content,:user_id,:genre_id,:start_date,:end_date)
+		params.require(:paper).permit(:title,:content,:user_id,:genre_id,:start_date,:end_date, paper_images_attributes: [:id, :image, :paper_id, :_destroy]
+			)
 	end
 end

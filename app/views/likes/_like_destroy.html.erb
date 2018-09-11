@@ -1,0 +1,3 @@
+<%= link_to paper_likes_path(@paper), method: :delete, id: "likes_#{@paper.id}", remote: true do %>
+<span class="glyphicon glyphicon-heart red" aria-hidden="true"><%= @paper.likes.count %></span>
+<% end %>

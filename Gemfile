@@ -19,7 +19,7 @@ gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
-gem 'turbolinks', '~> 5'
+# gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
@@ -72,11 +72,11 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
   gem 'refile-mini_magick'
   gem 'kaminari'
   gem 'bootstrap-sass'
-  gem 'jquery-rails'
   gem 'enum_help'
   # jquery用
   gem 'jquery-rails'
   gem 'jquery-ui-rails'
+  gem 'jquery-turbolinks'
   # 論理削除用
   gem 'paranoia', '~> 2.3', '>= 2.3.1'
   # デプロイ用

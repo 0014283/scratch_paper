@@ -1,17 +1,45 @@
 <div class="clearfix">
   <% @papers.each do |paper| %>
-  <div class="">
-    <dl>
-      <dd><h4><%= link_to paper_path(paper.id) do %><%= paper.title %><% end %></h4></dd>
-      <dd><%= paper.content %></dd>
-      <dd><% unless paper.start_date.blank? %><%= paper.start_date.strftime("%Y年%-m月%-d日") %><% end %>
-        <% if paper.start_date.present? %>~
-        <% elsif paper.end_date.present? %>~
-        <% end %>
-        <% unless paper.end_date.blank? %><%= paper.end_date.strftime("%Y年%-m月%-d日") %><% end %>
-      </dd>
-      <dd><%= paper.user.name %></dd>
-    </dl>
-  </div>
+    <h4><%= link_to paper_path(paper.id) do %><%= paper.title %><% end %></h4>
+    <%= paper.content %>
+    <% unless paper.start_date.blank? %>
+      <%= paper.start_date.strftime("%Y年%-m月%-d日") %>
+    <% end %>
+    <% if paper.start_date.present? %>~
+      <% elsif paper.end_date.present? %>~
+    <% end %>
+    <% unless paper.end_date.blank? %>
+      <%= paper.end_date.strftime("%Y年%-m月%-d日") %>
+    <% end %>
+    <%= paper.user.name %>
+    <% @paper_images.each do |pi| %>
+     <% if paper.id == pi.paper_id %>
+      <%= attachment_image_tag pi, :image, :fill, 200, 200, format: 'jpeg' %>
+      <% end %>
+    <% end %>
+    <% if user_signed_in? %>
+      <% if current_user.likes.find_by(paper_id: paper.id) %>
+        <%= link_to paper_likes_path(paper.id), method: :delete, id: "likes_#{paper.id}", remote: true do %>
+        <span class="glyphicon glyphicon-heart red" aria-hidden="true"><%= paper.likes.count %></span>
+      <% end %>
+      <% else %>
+        <%= link_to paper_likes_path(paper.id), method: :post, id: "likes_#{paper.id}", remote: true do %>
+        <span class="glyphicon glyphicon-heart black" aria-hidden="true"><%= paper.likes.count %></span>
+      <% end %>
+      <% end %>
+
+              <% if current_user.interests.find_by(paper_id: paper.id) %>
+        <%= link_to paper_interests_path(paper.id), method: :delete, id: "interests_#{paper.id}", remote: true do %>
+        <span class="glyphicon glyphicon-bookmark green" aria-hidden="true"><%= paper.interests.count %></span>
+      <% end %>
+      <% else %>
+        <%= link_to paper_interests_path(paper.id), method: :post, id: "interests_#{paper.id}", remote: true do %>
+        <span class="glyphicon glyphicon-bookmark black" aria-hidden="true"><%= paper.interests.count %></span>
+      <% end %>
+      <% end %>
+     <% else %>
+     <%= link_to new_user_session_path do %><span class="glyphicon glyphicon-heart black" aria-hidden="true"><%= paper.likes.count %></span><% end %>
+      <%= link_to new_user_session_path do %><span class="glyphicon glyphicon-bookmark black" aria-hidden="true"><%= paper.interests.count %></span><% end %>
+    <% end %>
   <% end %>
 </div>
