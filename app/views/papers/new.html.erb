@@ -21,7 +21,6 @@
 					<%= f.date_field :end_date %>まで
 
 					<%= f.fields_for :paper_images do |builder| %>
-					<%#= render "paper_image_fields", f: builder %>
 					<%= link_to_add_fields "画像追加", f, :paper_images %>
 						<%= f.submit class: "btn btn-primary data" %>
 					<% end %>
