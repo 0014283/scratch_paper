@@ -14,13 +14,19 @@
 <%= @paper.user.name %>
 
 <% if user_signed_in? %>
-	<% if current_user.likes.find_by(paper_id: @paper.id) %>
-			<%= render 'likes/like_destroy' %>
-		<% else %>
-			<%= render 'likes/like_create' %>
-	<% end %>
+<% if current_user.likes.find_by(paper_id: @paper.id) %>
+<%= render 'likes/like_destroy' %>
+<% else %>
+<%= render 'likes/like_create' %>
+<% end %>
+	<% if current_user.interests.find_by(paper_id: @paper.id) %>
+	<%= render 'interests/interest_destroy' %>
 	<% else %>
-		<%= link_to new_user_session_path do %><span class="glyphicon glyphicon-heart black" aria-hidden="true"><%= @paper.likes.count %><% end %>
+	<%= render 'interests/interest_create' %>
+	<% end %>
+<% else %>
+<%= link_to new_user_session_path do %><span class="glyphicon glyphicon-heart black" aria-hidden="true"><%= @paper.likes.count %><% end %>
+<%= link_to new_user_session_path do %><span class="glyphicon glyphicon-bookmark black" aria-hidden="true"><%= @paper.intersts.count %><% end %>
 <% end %>
 
 <%= link_to "削除", paper_path(@paper.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>

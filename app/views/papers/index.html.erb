@@ -27,8 +27,19 @@
         <span class="glyphicon glyphicon-heart black" aria-hidden="true"><%= paper.likes.count %></span>
       <% end %>
       <% end %>
+
+              <% if current_user.interests.find_by(paper_id: paper.id) %>
+        <%= link_to paper_interests_path(paper.id), method: :delete, id: "interests_#{paper.id}", remote: true do %>
+        <span class="glyphicon glyphicon-bookmark green" aria-hidden="true"><%= paper.interests.count %></span>
+      <% end %>
+      <% else %>
+        <%= link_to paper_interests_path(paper.id), method: :post, id: "interests_#{paper.id}", remote: true do %>
+        <span class="glyphicon glyphicon-bookmark black" aria-hidden="true"><%= paper.interests.count %></span>
+      <% end %>
+      <% end %>
      <% else %>
-      <%= link_to new_user_session_path do %><span class="glyphicon glyphicon-heart black" aria-hidden="true"><%= paper.likes.count %><% end %>
+     <%= link_to new_user_session_path do %><span class="glyphicon glyphicon-heart black" aria-hidden="true"><%= paper.likes.count %></span><% end %>
+      <%= link_to new_user_session_path do %><span class="glyphicon glyphicon-bookmark black" aria-hidden="true"><%= paper.interests.count %></span><% end %>
     <% end %>
   <% end %>
 </div>
