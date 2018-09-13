@@ -7,9 +7,9 @@ class CreatePapers < ActiveRecord::Migration[5.2]
         t.index :content
     	t.integer :user_id, null: false
     	t.integer :genre_id
-    	t.datetime :start_date
+    	t.date :start_date
     	t.index :start_date
-    	t.datetime :end_date
+    	t.date :end_date
     	t.index :end_date
     	t.datetime :created_at, null: false, default: "now"
     	t.datetime :updated_at, null: false, default: "now"
