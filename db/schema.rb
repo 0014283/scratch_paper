@@ -62,8 +62,8 @@ ActiveRecord::Schema.define(version: 2018_09_05_071605) do
     t.text "content", null: false
     t.integer "user_id", null: false
     t.integer "genre_id"
-    t.datetime "start_date"
-    t.datetime "end_date"
+    t.date "start_date"
+    t.date "end_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["content"], name: "index_papers_on_content"

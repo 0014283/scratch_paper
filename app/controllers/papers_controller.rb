@@ -4,6 +4,47 @@ class PapersController < ApplicationController
 	def index
 		@papers = Paper.all
 		@paper_images = PaperImage.all
+
+		if params[:genre_id].present?
+			@papers = @papers.get_by_genre_id params[:genre_id]
+		end
+
+		if params[:q].present?
+			@papers = @papers.get_by_keyword params[:q]
+		end
+
+		# もしfrom(start_date)とto(end_date)が入力された時
+		if params[:from].present? && params[:to].present?
+			# from ~ to の間のデータ
+			@papers_start_between = @papers.start_date_between params[:from],params[:to]
+			@papers_end_between = @papers.end_date_between params[:from],params[:to]
+
+			# from ~ to の外のデータ
+			@papers_start_outside = @papers.start_date_outside params[:from],params[:to]
+			@papers_end_outside = @papers.end_date_outside params[:from],params[:to]
+
+			# 全ての検索結果を合わせる
+			@papers = @papers_start_between + @papers_end_between + @papers_start_outside + @papers_end_outside
+			# 重複しているデータを取り除く
+			@papers = @papers.uniq
+
+		# それともfrom(start_date)のみが入力された時
+		elsif params[:from].present?
+			@papers_start_from = @papers.get_by_start_date_from params[:from]
+			@papers_end_from = @papers.get_by_end_date_from params[:from]
+
+			@papers = @papers_start_from + @papers_end_from
+			@papers = @papers.uniq
+
+		# それともto(end_date)のみが入力された時
+		elsif params[:to].present?
+			@papers_start_to = @papers.get_by_end_date_to params[:to]
+			@papers_end_to = @papers.get_by_start_date_to params[:to]
+
+			@papers = @papers_end_to + @papers_start_to
+			@papers = @papers.uniq
+		end
+
 	end
 
 	def new
