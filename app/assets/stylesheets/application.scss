@@ -23,16 +23,185 @@
 }
  a {
  text-decoration: none;
+ color: #5d627b;
+}
+body {
+background: image-url("colk.jpg");
+}
+ul {
+	margin-top: 20px;
+}
+button {
+    background:none;
+    border:0;
+}
+.scratch_paper_logo {
+padding: 0.5em 1em;
+margin: 2em 0;
+color: #5d627b;
+background: #ffeb3b;
+box-shadow: 0 6px 8px rgba(0, 0, 0, 0.22);
+width: 100px;
+height: 50px;
+float: left;
+text-align: center;
+position: relative;
+transform: rotate( -3deg );
+}
+.logo2 {
+transform: rotate( 5deg );
+}
+.sero {
+background: image-url("sero.png") no-repeat center;
+width:70px;
+height:55px;
+position:absolute;
+top: -30px;
+left: 10px;
 }
  .box {
  margin : 0 40px;
 }
  .black {
  color: black;
+ margin-right: 40px;
 }
  .red {
  color: red;
+ margin-right: 40px;
 }
 .green {
  color: green;
+ margin-right: 40px;
 }
+.navbar {
+	margin-bottom: 0;
+}
+.tag {
+background: image-url("t.png") no-repeat center;
+margin-right: 20px;
+width: 55px;
+height: 175px;
+padding-top: 75px;
+padding-left: 17px;
+position: relative;
+transform: rotate( 5deg );
+}
+.tag_p{
+  background: image-url("t_p.png") no-repeat center;
+}
+.tag_w{
+  background: image-url("t_w.png") no-repeat center;
+}
+ .tag_pin{
+  background: image-url("pin.png") no-repeat center;
+  width:50px;
+  height:50px;
+  position:absolute;
+  top: -30px;
+  left: 5px;
+}
+
+.length {
+-webkit-writing-mode: vertical-rl;
+-ms-writing-mode: tb-rl;
+writing-mode: vertical-rl;
+}
+
+.paper {
+padding: 0.5em 1em;
+margin: 2em 30px;
+color: #5d627b;
+background: white;
+box-shadow: 0 6px 8px rgba(0, 0, 0, 0.22);
+width: 380px;
+height: 300px;
+float: left;
+text-align: center;
+position: relative;
+transform: rotate( -3deg );
+ h4 {
+ margin-top: 20px;
+ }
+ p {
+ text-align: left;
+ }
+}
+.big_paper {
+padding: 0.5em 1em;
+margin: 2em 30px;
+color: #5d627b;
+background: white;
+box-shadow: 0 6px 8px rgba(0, 0, 0, 0.22);
+width: 670px;
+height: 550px;
+float: left;
+text-align: center;
+position: relative;
+transform: rotate( -3deg );
+}
+.y_paper {
+background: #fbf5c1;
+transform: rotate( 3deg );
+}
+.b_paper {
+background: #c7eef3;
+transform: rotate( 5deg );
+}
+.p_paper {
+background: #f9e6ec;
+transform: rotate( -5deg );
+}
+.paper_pin{
+  background: image-url("pin.png") no-repeat center;
+  width:50px;
+  height:50px;
+  position:absolute;
+  top: -30px;
+}
+.pin_y{
+  background: image-url("pin_y.png") no-repeat center;
+}
+
+ .pin_b{
+ background: image-url("pin_b.png") no-repeat center;
+}
+.content {
+	margin-top: 40px;
+}
+ .likes {
+ position: absolute;
+ bottom: 20px;
+ right: 10px;
+}
+.genre_name {
+position: absolute;
+bottom: 60px;
+right: 40px;
+}
+.paper_user_name {
+position: absolute;
+bottom: 50px;
+left: 10px;
+}
+.paper_date {
+position: absolute;
+bottom: 20px;
+left: 10px;
+}
+.data {
+	width:70%;
+}
+.content_data {
+ height: 200px;
+}
+.genre_data {
+	width:40%;
+}
+.date_data {
+	width: 30%;
+}
+.data_create {
+margin-top: 20px;
+}
+

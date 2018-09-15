@@ -1,32 +1,53 @@
 
-<%= @paper.title %>
-
-<%= @paper.content %>
-
-<% @genres.each do |genre| %><% if @paper.genre_id == genre.id %><%= genre.name %><% end %><% end %>
-
-<% unless @paper.start_date.blank? %><%= @paper.start_date.strftime("%Y年%-m月%-d日") %><% end %>
-<% if @paper.start_date.present? %>~
-<% elsif @paper.end_date.present? %>~
-<% end %>
-<% unless @paper.end_date.blank? %><%= @paper.end_date.strftime("%Y年%-m月%-d日") %><% end %>
-
-<%= @paper.user.name %>
-
-<% if user_signed_in? %>
-<% if current_user.likes.find_by(paper_id: @paper.id) %>
-<%= render 'likes/like_destroy' %>
-<% else %>
-<%= render 'likes/like_create' %>
-<% end %>
-	<% if current_user.interests.find_by(paper_id: @paper.id) %>
-	<%= render 'interests/interest_destroy' %>
-	<% else %>
-	<%= render 'interests/interest_create' %>
-	<% end %>
-<% else %>
-<%= link_to new_user_session_path do %><span class="glyphicon glyphicon-heart black" aria-hidden="true"><%= @paper.likes.count %><% end %>
-<%= link_to new_user_session_path do %><span class="glyphicon glyphicon-bookmark black" aria-hidden="true"><%= @paper.intersts.count %><% end %>
-<% end %>
-
-<%= link_to "削除", paper_path(@paper.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>
+	<div  class="clearfix">
+		<% if @paper.genre_id == nil %>
+		<div  class="big_paper b_paper">
+			<span  class="paper_pin pin_b"></span>
+		<% elsif @paper.genre_id == 3 %>
+		<div  class="big_paper p_paper">
+			<span  class="paper_pin"></span>
+		<% elsif @paper.genre_id <= 4 %>
+		<div  class="big_paper y_paper">
+			<span  class="paper_pin"></span>
+		<% elsif @paper.genre_id >= 9 %>
+		<div  class="big_paper">
+			<span  class="paper_pin pin_y"></span>
+		<% else %>
+		<div  class="big_paper b_paper">
+			<span  class="paper_pin pin_b"></span>
+		<% end %>
+			<h1><%= @paper.title %></h1>
+			<h2  class="content"><%= @paper.content %></h2>
+			<% @genres.each do |genre| %><% if @paper.genre_id == genre.id %><h4  class="genre_name"><%= genre.name %></h4><% end %><% end %>
+			<span  class="paper_date">
+				<h4>
+					<% unless @paper.start_date.blank? %><%= @paper.start_date.strftime("%Y年%-m月%-d日") %><% end %>
+					<% if @paper.start_date.present? %>~
+					<% elsif @paper.end_date.present? %>~
+					<% end %>
+					<% unless @paper.end_date.blank? %><%= @paper.end_date.strftime("%Y年%-m月%-d日") %><% end %>
+				</h4>
+			</span>
+			<%= link_to my_list_user_path(@paper.user_id) do %><h4  class="paper_user_name"><%= @paper.user.name %></h4><% end %>
+			<span  class="likes">
+				<h4>
+					<% if user_signed_in? %>
+						<% if current_user.likes.find_by(paper_id: @paper.id) %>
+							<%= render 'likes/like_destroy' %>
+						<% else %>
+							<%= render 'likes/like_create' %>
+						<% end %>
+						<% if current_user.interests.find_by(paper_id: @paper.id) %>
+							<%= render 'interests/interest_destroy' %>
+						<% else %>
+							<%= render 'interests/interest_create' %>
+						<% end %>
+					<% else %>
+						<%= link_to new_user_session_path do %><span class="glyphicon glyphicon-heart black" aria-hidden="true"><%= @paper.likes.count %><% end %></span>
+						<%= link_to new_user_session_path do %><span class="glyphicon glyphicon-bookmark black" aria-hidden="true"><%= @paper.intersts.count %><% end %></span>
+					<% end %>
+				</h4>
+			</span>
+		</div>
+		<%= link_to "削除", paper_path(@paper.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>
+	</div>
