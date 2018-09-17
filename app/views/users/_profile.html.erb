@@ -1,53 +1,54 @@
 
+<div  class="clearfix">
 	<div  class=" profile_image">
-	<%= attachment_image_tag @user, :user_image, :fill, 200, 200, format: 'jpeg', fallback: "no_image100x100.jpg" %>
+		<span  class="paper_pin profile_image_pin"></span><span  class="paper_pin profile_image_pin2"></span>
+		<%= attachment_image_tag @user, :user_image, :fill, 300, 300, format: 'jpeg', fallback: "no_image300x300.jpg" %>
 	</div>
-	<div  class=" user_name">
-	<%= @user.name %>
-	<div  class=" user_content">
-	<%= @user.content %>
+	<div  class="left">
+		<%= render 'stats' %>
+		<% if user_signed_in? %>
+			<% if @user == current_user %>
+				<%= link_to edit_user_path(@user.id) do %><div  class="pen"></div><% end %>
+			<% else %>
+				<%= render 'follow_form' %>
+			<% end %>
+		<% end %>
 	</div>
-	<% if user_signed_in? %>
-	<% if @user == current_user %>
-	<%= link_to "編集", edit_user_path(@user.id) %>
-	<% else %>
-	<%= render 'follow_form' %>
-	<% end %>
-	<% end %>
-	<%= render 'stats' %>
-
-
-	<!-- <%#= link_to following_user_path(@user.id) do %><%#= @user.following.count %>フォロー<%# end %> -->
-	<!-- <%#= link_to followers_user_path(@user.id) do %><%#= @user.followers.count %>フォロワー<%# end %> -->
+	<div  class ="user_paper">
+		<span  class="sero"></span>
+		<h1  class="user_name"><%= @user.name %></h1>
+		<p  class=" user_content"><%= @user.content %></p>
+	</div>
+</div>
 
 <div class="collapse navbar-collapse" id="navbarEexample">
 	<ul class="nav nav-tabs nav-justified">
 		<% if @path.is('users#my_list') %>
-		<li role="presentation" class="active">
-			<%= link_to "MYメモ", my_list_user_path(@user.id) %>
-		</li>
+			<li role="presentation" class="active">
+				<%= link_to "MYメモ", my_list_user_path(@user.id), class:"list_nav" %>
+			</li>
 		<% else %>
-		<li role="presentation">
-			<%= link_to "MYメモ", my_list_user_path(@user.id) %>
-		</li>
+			<li role="presentation">
+				<%= link_to "MYメモ", my_list_user_path(@user.id), class:"list_nav" %>
+			</li>
 		<% end %>
 		<% if @path.is('users#interest_list') %>
-		<li role="presentation" class="active">
-			<%= link_to "気になるリスト", interest_list_user_path(@user.id) %>
-		</li>
+			<li role="presentation" class="active">
+				<%= link_to "気になるリスト", interest_list_user_path(@user.id), class:"list_nav" %>
+			</li>
 		<% else %>
-		<li role="presentation">
-			<%= link_to "気になるリスト", interest_list_user_path(@user.id) %>
-		</li>
+			<li role="presentation">
+				<%= link_to "気になるリスト", interest_list_user_path(@user.id), class:"list_nav" %>
+			</li>
 		<% end %>
 		<% if @path.is('users#following_list') %>
-		<li role="presentation" class="active">
-			<%= link_to "フォロワーメモ", following_list_user_path(@user.id) %>
-		</li>
+			<li role="presentation" class="active">
+				<%= link_to "フォロワーメモ", following_list_user_path(@user.id), class:"list_nav" %>
+			</li>
 		<% else %>
-		<li role="presentation">
-			<%= link_to "フォロワーメモ", following_list_user_path(@user.id) %>
-		</li>
+			<li role="presentation">
+				<%= link_to "フォロワーメモ", following_list_user_path(@user.id), class:"list_nav" %>
+			</li>
 		<% end %>
-        </ul>
+	</ul>
 </div>

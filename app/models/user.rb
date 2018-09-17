@@ -10,9 +10,13 @@ class User < ApplicationRecord
          validates :name, presence: true
          validates :email, presence: true, uniqueness: true
 
-         has_many :paper, dependent: :destroy
+         has_many :papers, dependent: :destroy
+
          has_many :interests, dependent: :destroy
+         has_many :interested_papers, through: :interests, source: :paper
+
          has_many :likes, dependent: :destroy
+         has_many :liked_papers, through: :likes, source: :paper
 
          has_many :following_relationships, foreign_key: "follower_id", class_name: "Relationship", dependent: :destroy
          has_many :followings, through: :following_relationships
