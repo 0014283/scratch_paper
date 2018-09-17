@@ -1,8 +1,12 @@
 class Paper < ApplicationRecord
 
 	belongs_to :user
+
 	has_many :likes, dependent: :destroy
+	has_many :interested_likes, through: :likes, source: :paper
+
 	has_many :interests, dependent: :destroy
+	has_many :interested_users, through: :interests, source: :user
 
 	has_many :paper_images, dependent: :destroy
 	accepts_nested_attributes_for :paper_images, allow_destroy: true

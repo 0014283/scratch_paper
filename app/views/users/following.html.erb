@@ -1,15 +1,18 @@
 
 <%= render 'users/profile', users: @users %>
 
-following
+<div  class="clearfix">
+	<h1>フォローリスト</h1>
+	<% @user.followings.each do |user| %>
 
-<% @user.followings.each do |user| %>
-<table>
-<tr>
-  <td>  <%= user.name %> </td>
-  <td><%= link_to '詳細', my_list_user_path(user) %></td>
-</tr>
+	<%= link_to my_list_user_path(user) do %>
+	<div  class=" profile_image following_image">
+		<span  class="paper_pin"></span>
+		<%= attachment_image_tag user, :user_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image100x100.jpg" %>
+		<span  class="h h_y"><p><%= user.name %></p></span>
+	</div>
+	<% end %>
 
-</table>
-<% end %>
+	<% end %>
+</div>
 

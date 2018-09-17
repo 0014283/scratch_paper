@@ -31,6 +31,9 @@ background: image-url("colk.jpg");
 ul {
 	margin-top: 20px;
 }
+li {
+  list-style: none;
+}
 button {
     background:none;
     border:0;
@@ -166,6 +169,23 @@ transform: rotate( -5deg );
  .pin_b{
  background: image-url("pin_b.png") no-repeat center;
 }
+.profile_image_pin {
+width: 35px;
+height: 35px;
+top: -15px;
+  background: image-url("profile_image_pin.png") no-repeat center;
+}
+.profile_image_pin2 {
+width: 35px;
+height: 35px;
+top: -15px;
+right: 10px;
+  background: image-url("profile_image_pin2.png") no-repeat center;
+}
+.list_nav {
+  font-size: 20px;
+  color: #fff06d;
+}
 .content {
 	margin-top: 40px;
 }
@@ -204,4 +224,102 @@ left: 10px;
 .data_create {
 margin-top: 20px;
 }
+.user_paper {
+  background: image-url("user_paper.png") no-repeat center;
+  width:562px;
+  height:274px;
+  float: left;
+  margin: 40px;
+  box-shadow: 0 8px 0 0 rgba(0, 0, 0, 0.22);
+  position: relative;
+  padding: 20px 50px 0;
+  transform: rotate( 3deg );
+  .sero {
+  left: 200px;
+  width: 130px;
+  }
+  .user_name {
+  text-align: left;
+  }
+  p {
+  text-align: left;
+  }
+}
+.h {
+  background: image-url("h_p.png") no-repeat center;
+  width:234px;
+  height:59px;
+  padding: 17px 0 0 60px;
+  position: relative;
 
+}
+.h_b {
+background: image-url("h_b.png") no-repeat center;
+}
+.h_g {
+background: image-url("h_g.png") no-repeat center;
+ p {
+ font-size: 25px;
+ }
+}
+.h_y {
+  background: image-url("h_y.png") no-repeat center;
+  width: 120px;
+  height: 30px;
+  position: absolute;
+  p {
+  left: 5px;
+  top: 5px;
+  position: absolute;
+  }
+}
+.profile_image {
+  float: left;
+  position: relative;
+transform: rotate( -3deg );
+box-shadow: 0 6px 8px rgba(0, 0, 0, 0.22);
+margin-left: 40px;
+}
+.following_image {
+  transform: rotate( 3deg );
+  margin: 50px;
+  box-shadow: none;
+}
+.pen {
+    background: image-url("edit_pen.png") no-repeat center;
+  width:250px;
+  height:90px;
+  position: relative;
+  margin: 30px 0 0 35px;
+  border-bottom: 0px;
+}
+.left{
+  float:left;
+}
+.edit {
+  width: 100%;
+}
+.edit_content {
+  width: 100%;
+  height: 150px;
+}
+.user_d {
+background: image-url("d.png") no-repeat center;
+float: left;
+position: relative;
+transform: rotate( 20deg );
+width: 350px;
+height: 225px;
+padding: 50px;
+margin-top: 30px;
+ .pin_y {
+ right: 10px;
+ top: -10px;
+ }
+}
+
+input, textarea {
+      background:none;
+    border:0;
+    border-bottom: 3px solid;
+}

@@ -2,14 +2,19 @@ class UsersController < ApplicationController
 
 	def my_list
 		@user= User.find(params[:id])
+		@papers = @user.papers.all
+		@paper_images = PaperImage.all
 	end
 
 	def interest_list
 		@user= User.find(params[:id])
+		@paper_images = PaperImage.all
 	end
 
 	def following_list
 		@user= User.find(params[:id])
+		@users = @user.followings
+		@paper_images = PaperImage.all
 	end
 
 	def following
