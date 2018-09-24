@@ -38,6 +38,18 @@ button {
     background:none;
     border:0;
 }
+footer {
+margin-top: 50px;
+text-align: center;
+  background-color: brown;
+  a {
+  font-size: 18px;
+  color: white;
+  }
+}
+.top {
+  backgroud-color: white;
+}
 .scratch_paper_logo {
 padding: 0.5em 1em;
 margin: 2em 0;
@@ -77,6 +89,10 @@ left: 10px;
  color: green;
  margin-right: 40px;
 }
+.blue {
+ color: blue;
+ margin-right: 40px;
+}
 .navbar {
 	margin-bottom: 0;
 }
@@ -110,6 +126,34 @@ transform: rotate( 5deg );
 -ms-writing-mode: tb-rl;
 writing-mode: vertical-rl;
 }
+
+.page {
+ margin-top: 70px;
+ padding: 30px;
+ position: relative;
+ box-shadow: 0 12px 14px rgba(0, 0, 0, 0.22);
+  background: image-url("p.jpeg") no-repeat center;
+  width: 1185px;
+  height: 1200px;
+  transform: rotate( -1deg );
+  h1 {
+  font-weight:bold;
+  }
+  p {
+  font-size: 30px;
+  margin-top: 100px;
+  text-align: left;
+  }
+  span {
+  color: red;
+  font-size:120%;
+  font-weight:bold;
+  }
+}
+.center {
+  text-align: center;
+}
+
 
 .paper {
 padding: 0.5em 1em;
@@ -189,6 +233,11 @@ right: 10px;
 .content {
 	margin-top: 40px;
 }
+ .images {
+ position: absolute;
+ bottom: 40px;
+ right: 10px;
+ }
  .likes {
  position: absolute;
  bottom: 20px;
@@ -196,7 +245,7 @@ right: 10px;
 }
 .genre_name {
 position: absolute;
-bottom: 60px;
+bottom: 70px;
 right: 40px;
 }
 .paper_user_name {
@@ -223,6 +272,9 @@ left: 10px;
 }
 .data_create {
 margin-top: 20px;
+}
+.add_images {
+ margin: 30px;
 }
 .user_paper {
   background: image-url("user_paper.png") no-repeat center;
@@ -270,6 +322,30 @@ background: image-url("h_g.png") no-repeat center;
   p {
   left: 5px;
   top: 5px;
+  position: absolute;
+  }
+}
+.h_p_big {
+  background: image-url("h_p_big.png") no-repeat center;
+  width: 470px;
+  height: 120px;
+  margin-top: 60px;
+  position: relative;
+  p{
+  left: 20px;
+  top: -70px;
+  position: absolute;
+  }
+}
+.h_b_big {
+  background: image-url("h_b_big.png") no-repeat center;
+  width: 470px;
+  height: 120px;
+  margin-top: 60px;
+  position: relative;
+  p{
+  left: 20px;
+  top: -65px;
   position: absolute;
   }
 }

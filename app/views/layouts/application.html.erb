@@ -7,6 +7,9 @@
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   </head>
 
   <header>
@@ -42,7 +45,11 @@
           </li>
           <li role="presentation">
             <% if @path.is('users')%>
-            <button type="button" class="navbar-btn tag tag_p">
+              <% if @user.id == current_user.id %>
+                <button type="button" class="navbar-btn tag tag_p">
+              <% else %>
+                <button type="button" class="navbar-btn tag">
+              <% end %>
             <% else %>
             <button type="button" class="navbar-btn tag">
             <% end %>

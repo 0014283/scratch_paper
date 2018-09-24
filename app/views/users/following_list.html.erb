@@ -34,11 +34,18 @@
 				<%= paper.end_date.strftime("%Y年%-m月%-d日") %>
 			<% end %>
 		</span>
-		<% @paper_images.each do |pi| %>
-		<% if paper.id == pi.paper_id %>
-			<%= attachment_image_tag pi, :image, :fill, 300, 300, format: 'jpeg' %>
-		<% end %>
-		<% end %>
+		<%# @paper_images.each do |pi| %>
+		<%# if paper.id == pi.paper_id %>
+			<%#= attachment_image_tag pi, :image, :fill, 300, 300, format: 'jpeg' %>
+		<%# end %>
+		<%# end %>
+		<span  class="images">
+			<% if paper.paper_images.count > 0 %>
+				<span class="glyphicon glyphicon-camera blue" aria-hidden="true"><%= paper.paper_images.count %></span>
+			<% else %>
+				<span class="glyphicon glyphicon-camera black" aria-hidden="true"><%= paper.paper_images.count %></span>
+			<% end %>
+		</span>
 		<span  class="likes">
 			<% if user_signed_in? %>
 				<% if current_user.likes.find_by(paper_id: paper.id) %>

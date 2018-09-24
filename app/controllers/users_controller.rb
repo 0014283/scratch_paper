@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
 
+	before_action :authenticate_user!, only:[:my_list, :following, :followers]
+
 	def my_list
 		@user= User.find(params[:id])
 		@papers = @user.papers.all

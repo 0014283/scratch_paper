@@ -6,6 +6,12 @@ class ApplicationController < ActionController::Base
 
 	before_action :request_path
 
+	def after_sign_in_path_for(resource)
+
+		my_list_user_url(resource)
+
+	end
+
 
 	def request_path
 		@path = controller_path + '#' + action_name
