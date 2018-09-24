@@ -1,4 +1,7 @@
 class LikesController < ApplicationController
+
+	before_action :authenticate_user!
+
 	def create
 		@paper = Paper.find(params[:paper_id])
 		@like = current_user.likes.new(paper_id: @paper.id)

@@ -1,5 +1,7 @@
 class InterestsController < ApplicationController
 
+	before_action :authenticate_user!
+
 	def create
 		@paper = Paper.find(params[:paper_id])
 		@interest = current_user.interests.new(paper_id: @paper.id)

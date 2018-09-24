@@ -29,6 +29,15 @@
 				</h4>
 			</span>
 			<%= link_to my_list_user_path(@paper.user_id) do %><h4  class="paper_user_name"><%= @paper.user.name %></h4><% end %>
+			<span  class="images">
+				<h4>
+					<% if @paper.paper_images.count > 0 %>
+						<span class="glyphicon glyphicon-camera blue" aria-hidden="true"><%= @paper.paper_images.count %></span>
+					<% else %>
+						<span class="glyphicon glyphicon-camera black" aria-hidden="true"><%= @paper.paper_images.count %></span>
+					<% end %>
+				</h4>
+			</span>
 			<span  class="likes">
 				<h4>
 					<% if user_signed_in? %>
