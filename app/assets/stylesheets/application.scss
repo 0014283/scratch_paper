@@ -153,8 +153,29 @@ writing-mode: vertical-rl;
 .center {
   text-align: center;
 }
-
-
+.search {
+background: image-url("h_serach.png") no-repeat center;
+  width: 600px;
+  height: 40px;
+  text-align: center;
+  padding-top: 5px;
+  position: relative;
+}
+.sero_y {
+  background: image-url("sero_y.png") no-repeat center;
+  top: -25px;
+  left: -25px;
+  transform: rotate( -35deg );
+}
+.sero_y2 {
+  background: image-url("sero_y.png") no-repeat center;
+  top: -25px;
+  right: -25px;
+  transform: rotate( 35deg );
+  width:70px;
+height:55px;
+position:absolute;
+}
 .paper {
 padding: 0.5em 1em;
 margin: 2em 30px;
@@ -187,6 +208,14 @@ text-align: center;
 position: relative;
 transform: rotate( -3deg );
 margin-left: 80px;
+}
+.cut {
+margin-top: 20px;
+  background: image-url("cut.png") no-repeat center;
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  transform: rotate( 40deg );
 }
 .y_paper {
 background: #fbf5c1;
@@ -291,14 +320,6 @@ margin-top: 20px;
  color: red;
  font-weight:bold;
  }
-}
-.fileset {
-     background-color: orange;  /* 背景色 */
-   color: white;              /* 文字色 */
-   border: 2px solid orange;  /* 枠線 */
-   border-radius: 3em;        /* 角丸 */
-   padding: 12px 9px;         /* 内側の余白 */
-   display: inline-block; 
 }
 .user_paper {
   background: image-url("user_paper.png") no-repeat center;

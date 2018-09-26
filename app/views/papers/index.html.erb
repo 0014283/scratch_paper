@@ -1,5 +1,6 @@
 
-  <div class="input-group">
+  <div class="input-group search">
+    <span  class="sero sero_y"></span><span  class="sero_y2"></span>
     <%= form_tag(papers_path, method: "get") do %>
     <%= text_field_tag "q", params[:q], placeholder:"キーワード" %>
     <%= select_tag :genre_id, options_for_select(Paper.genres), include_blank: true %>
