@@ -58,7 +58,9 @@
 				</h4>
 			</span>
 		</div>
-		<%= link_to "削除", paper_path(@paper.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>
+		<% if @paper.user_id == current_user.id %>
+		<%= link_to paper_path(@paper.id), method: :delete, "data-confirm" => "本当に削除しますか？" do %><span  class="cut"></span><% end %>
+		<% end %>
 		<% @paper_images.each do |pi| %>
 		<div  class="image_box clearfix">
 			<div  class="profile_image">
