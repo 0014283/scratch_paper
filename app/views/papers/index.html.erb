@@ -1,9 +1,9 @@
 
   <div class="input-group">
     <%= form_tag(papers_path, method: "get") do %>
-    <%= text_field_tag "q", params[:q] %>
+    <%= text_field_tag "q", params[:q], placeholder:"キーワード" %>
     <%= select_tag :genre_id, options_for_select(Paper.genres), include_blank: true %>
-    <%= date_field_tag "from", params[:from], include_blank: true %>
+    <%= date_field_tag "from", params[:from], include_blank: true %>から
     <%= date_field_tag "to", params[:to], include_blank: true %>
     <%= button_tag( class: " btn-primary") do %>
     <%= content_tag :span, "", class: "glyphicon glyphicon-search" %>

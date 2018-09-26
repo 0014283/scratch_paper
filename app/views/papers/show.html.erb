@@ -59,4 +59,12 @@
 			</span>
 		</div>
 		<%= link_to "削除", paper_path(@paper.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>
+		<% @paper_images.each do |pi| %>
+		<div  class="image_box clearfix">
+			<div  class="profile_image">
+				<span  class="paper_pin profile_image_pin"></span><span  class="paper_pin profile_image_pin2"></span>
+				<%= attachment_image_tag pi, :image, :fill, 350, 350, format: 'jpeg' %>
+			</div>
+		</div>
+		<% end %>
 	</div>

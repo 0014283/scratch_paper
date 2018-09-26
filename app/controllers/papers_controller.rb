@@ -56,6 +56,7 @@ class PapersController < ApplicationController
 	def show
 		@paper = Paper.find(params[:id])
 		@genres = Genre.all
+		@paper_images = PaperImage.where(paper_id: @paper.id)
 	end
 
 	def create
@@ -81,7 +82,7 @@ class PapersController < ApplicationController
 	private
 
 	def paper_params
-		params.require(:paper).permit(:title,:content,:user_id,:genre_id,:start_date,:end_date, paper_images_attributes: [:id, :image, :paper_id, :_destroy]
+		params.require(:paper).permit(:title,:content,:user_id,:genre_id,:start_date,:end_date, paper_images_attributes: [:id, :image, :paper_id, :_destroy, :image_cache_id]
 			)
 	end
 end

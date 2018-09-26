@@ -2,33 +2,34 @@
 	<div  class="clearfix">
 		<div  class="h h_g"><p> 新規投稿</p></div>
 		<% if @paper.errors.any? %>
-		<div id="error_explanation" class="alert alert-danger">
-			<h2  class="alert_h2"><%= pluralize(@paper.errors.count, "error") %> prohibited this artist from being saved:</h2>
-			<ul>
-				<% @paper.errors.full_messages.each do |message| %>
-				<li><%= message %></li>
-				<% end %>
-			</ul>
-		</div>
+			<div id="error_explanation" class="alert alert-danger">
+				<h2  class="alert_h2"><%= pluralize(@paper.errors.count, "error") %> prohibited this artist from being saved:</h2>
+				<ul>
+					<% @paper.errors.full_messages.each do |message| %>
+					<li><%= message %></li>
+					<% end %>
+				</ul>
+			</div>
 		<% end %>
 		<%= form_for(@paper, url: papers_path(@paper), method: :post)  do |f| %>
 		<div  class="big_paper">
-		<span  class="paper_pin pin_b"></span>
-		<h4> タイトル</h4>
-		<%= f.text_field :title, placeholder:"タイトル", class:"data" %>
-		<h4> 内容</h4>
-		<%= f.text_area :content, placeholder:"内容", class:"data content_data" %>
-		<h4> ジャンル</h4>
-		<%= f.select :genre_id,Genre.all.collect { |p| [ p.name, p.id ] }, {include_blank: true}, {class: 'genre_data'} %>
-		<h4> 開始日〜終了日</h4>
-		<%= f.date_field :start_date, class:"date_data" %>から
-		<%= f.date_field :end_date, class:"date_data" %>まで<br>
-		<%= f.submit class: "btn btn-primary data_create" %>
-	</div>
-	<span  class="add_images">
-			<%= f.fields_for :paper_images do |builder| %>
-		<%= link_to_add_fields "画像追加", f, :paper_images %>
-	</span>
-		<% end %>
+			<span  class="paper_pin pin_b"></span>
+			<h4> タイトル</h4>
+			<%= f.text_field :title, placeholder:"タイトル", class:"data" %>
+			<h4> 内容</h4>
+			<%= f.text_area :content, placeholder:"内容", class:"data content_data" %>
+			<h4> ジャンル</h4>
+			<%= f.select :genre_id,Genre.all.collect { |p| [ p.name, p.id ] }, {include_blank: true}, {class: 'genre_data'} %>
+			<h4> 開始日〜終了日</h4>
+			<%= f.date_field :start_date, class:"date_data" %>から
+			<%= f.date_field :end_date, class:"date_data" %>まで<br>
+			<%= f.submit class: "btn btn-primary data_create" %>
+		</div>
+		<span  class="add_images">
+			<% add_image = 0 %>
+			<% if add_image < 4 %>
+				<span class="glyphicon glyphicon-camera blue" aria-hidden="true"><%= link_to_add_fields "+", f, :paper_images %></span>
+			<% end %>
+		</span>
 		<% end %>
 	</div>
