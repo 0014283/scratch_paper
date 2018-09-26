@@ -1,5 +1,8 @@
 
 <div  class="clearfix">
+	<% if flash[:notice] %>
+		<p class="notice"><%= flash[:notice] %></p>
+	<% end %>
 	<div  class=" profile_image">
 		<span  class="paper_pin profile_image_pin"></span><span  class="paper_pin profile_image_pin2"></span>
 		<%= attachment_image_tag @user, :user_image, :fill, 300, 300, format: 'jpeg', fallback: "no_image300x300.jpg" %>
@@ -23,32 +26,56 @@
 
 <div class="collapse navbar-collapse" id="navbarEexample">
 	<ul class="nav nav-tabs nav-justified">
-		<% if @path.is('users#my_list') %>
-			<li role="presentation" class="active">
-				<%= link_to "MYメモ", my_list_user_path(@user.id), class:"list_nav" %>
-			</li>
-		<% else %>
-			<li role="presentation">
-				<%= link_to "MYメモ", my_list_user_path(@user.id), class:"list_nav" %>
-			</li>
-		<% end %>
-		<% if @path.is('users#interest_list') %>
-			<li role="presentation" class="active">
-				<%= link_to "気になるリスト", interest_list_user_path(@user.id), class:"list_nav" %>
-			</li>
-		<% else %>
-			<li role="presentation">
-				<%= link_to "気になるリスト", interest_list_user_path(@user.id), class:"list_nav" %>
-			</li>
-		<% end %>
-		<% if @path.is('users#following_list') %>
-			<li role="presentation" class="active">
-				<%= link_to "フォロワーメモ", following_list_user_path(@user.id), class:"list_nav" %>
-			</li>
-		<% else %>
-			<li role="presentation">
-				<%= link_to "フォロワーメモ", following_list_user_path(@user.id), class:"list_nav" %>
-			</li>
+		<% if user_signed_in? %>
+			<% if @user.id == current_user.id %>
+				<% if @path.is('users#my_list') %>
+					<li role="presentation" class="active">
+						<%= link_to "MYメモ", my_list_user_path(@user.id), class:"list_nav" %>
+					</li>
+				<% else %>
+					<li role="presentation">
+						<%= link_to "MYメモ", my_list_user_path(@user.id), class:"list_nav" %>
+					</li>
+				<% end %>
+				<% if @path.is('users#interest_list') %>
+					<li role="presentation" class="active">
+						<%= link_to "気になるリスト", interest_list_user_path(@user.id), class:"list_nav" %>
+					</li>
+				<% else %>
+					<li role="presentation">
+						<%= link_to "気になるリスト", interest_list_user_path(@user.id), class:"list_nav" %>
+					</li>
+				<% end %>
+				<% if @path.is('users#following_list') %>
+					<li role="presentation" class="active">
+						<%= link_to "フォロワーメモ", following_list_user_path(@user.id), class:"list_nav" %>
+					</li>
+				<% else %>
+					<li role="presentation">
+						<%= link_to "フォロワーメモ", following_list_user_path(@user.id), class:"list_nav" %>
+					</li>
+				<% end %>
+			<% else %>
+				<% if @path.is('users#my_list') %>
+					<li role="presentation" class="active">
+						<%= link_to "#{@user.name}メモ", my_list_user_path(@user.id), class:"list_nav" %>
+					</li>
+				<% else %>
+					<li role="presentation">
+						<%= link_to "#{@user.name}メモ", my_list_user_path(@user.id), class:"list_nav" %>
+					</li>
+				<% end %>
+			<% end %>
+			<% else %>
+				<% if @path.is('users#my_list') %>
+					<li role="presentation" class="active">
+						<%= link_to "#{@user.name}メモ", my_list_user_path(@user.id), class:"list_nav" %>
+					</li>
+				<% else %>
+					<li role="presentation">
+						<%= link_to "#{@user.name}メモ", my_list_user_path(@user.id), class:"list_nav" %>
+					</li>
+				<% end %>
 		<% end %>
 	</ul>
 </div>

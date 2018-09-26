@@ -3,7 +3,7 @@
 		<div  class="h h_g"><p> 新規投稿</p></div>
 		<% if @paper.errors.any? %>
 			<div id="error_explanation" class="alert alert-danger">
-				<h2  class="alert_h2"><%= pluralize(@paper.errors.count, "error") %> prohibited this artist from being saved:</h2>
+				<h2  class="alert_h2"><%= pluralize(@paper.errors.count, "つ") %> のエラーがある為、メモを投稿できません。</h2>
 				<ul>
 					<% @paper.errors.full_messages.each do |message| %>
 					<li><%= message %></li>
