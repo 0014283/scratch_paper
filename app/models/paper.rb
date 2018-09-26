@@ -15,7 +15,8 @@ class Paper < ApplicationRecord
 		errors.add(:paper_images, "画像は４つまで選択可能です。") if paper_images.size > 4
 	end
 
-	validates :content, presence: true
+	validates :title, length: { maximum:19 }
+	validates :content, presence: true, length: { maximum:150 }
 	validates :user_id, presence: true
 
 	enum genre: { イベント: 1, 映画: 2, 恋愛: 3, 日記: 4, 読書: 5, 旅行: 6, アニメ: 7, ゲーム: 8, 音楽: 9, ニュース: 10, 料理: 11, その他: 12 }

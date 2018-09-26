@@ -53,13 +53,15 @@
 						<% end %>
 					<% else %>
 						<%= link_to new_user_session_path do %><span class="glyphicon glyphicon-heart black" aria-hidden="true"><%= @paper.likes.count %><% end %></span>
-						<%= link_to new_user_session_path do %><span class="glyphicon glyphicon-bookmark black" aria-hidden="true"><%= @paper.intersts.count %><% end %></span>
+						<%= link_to new_user_session_path do %><span class="glyphicon glyphicon-bookmark black" aria-hidden="true"><%= @paper.interests.count %><% end %></span>
 					<% end %>
 				</h4>
 			</span>
 		</div>
-		<% if @paper.user_id == current_user.id %>
-		<%= link_to paper_path(@paper.id), method: :delete, "data-confirm" => "本当に削除しますか？" do %><span  class="cut"></span><% end %>
+		<% if user_signed_in? %>
+			<% if @paper.user_id == current_user.id %>
+			<%= link_to paper_path(@paper.id), method: :delete, "data-confirm" => "本当に削除しますか？" do %><span  class="cut"></span><% end %>
+			<% end %>
 		<% end %>
 		<% @paper_images.each do |pi| %>
 		<div  class="image_box clearfix">

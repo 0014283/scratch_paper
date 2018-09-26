@@ -60,6 +60,14 @@
           </li>
           <% else %>
           <li role="presentation">
+            <% if @path.is('papers#index') %>
+            <button type="button" class="navbar-btn tag tag_p">
+            <% else %>
+            <button type="button" class="navbar-btn tag">
+            <% end %>
+            <%= link_to papers_path do %><span  class="tag_pin"></span><P  class="length">投稿一覧</P><% end %></button>
+          </li>
+          <li role="presentation">
             <% if @path.is('users/sessions#new') %>
             <button type="button" class="navbar-btn tag tag_p">
             <% else %>
@@ -73,7 +81,7 @@
             <% else %>
             <button type="button" class="navbar-btn tag">
             <% end %>
-            <%= link_to new_user_registration_path do %><span  class="tag_pin"></span><P  class="length">サインアップ</P><% end %></button>
+            <%= link_to new_user_registration_path do %><span  class="tag_pin"></span><P  class="length">新規登録</P><% end %></button>
           </li>
           <% end %>
         </ul>
