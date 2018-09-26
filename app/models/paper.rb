@@ -10,6 +10,10 @@ class Paper < ApplicationRecord
 
 	has_many :paper_images, dependent: :destroy
 	accepts_nested_attributes_for :paper_images, allow_destroy: true
+	validate :paper_images_size
+	def paper_images_size
+		errors.add(:paper_images, "画像は４つまで選択可能です。") if paper_images.size > 4
+	end
 
 	validates :content, presence: true
 	validates :user_id, presence: true
@@ -43,5 +47,6 @@ class Paper < ApplicationRecord
 
   	# 一つのフォームで複数のカラムを検索
 	scope :get_by_keyword, -> (keyword) { where("(title LIKE :keyword) OR (content LIKE :keyword)", keyword: "%#{sanitize_sql_like(keyword)}%")}
+
 
 end

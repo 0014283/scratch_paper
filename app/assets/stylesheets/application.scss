@@ -186,6 +186,7 @@ float: left;
 text-align: center;
 position: relative;
 transform: rotate( -3deg );
+margin-left: 80px;
 }
 .y_paper {
 background: #fbf5c1;
@@ -275,6 +276,29 @@ margin-top: 20px;
 }
 .add_images {
  margin: 30px;
+ font-size: 20px;
+ a {
+ text-decoration: none;
+ color: blue;
+ font-weight:bold;
+ }
+}
+.remove_images {
+ margin: 40px;
+ font-size: 25px;
+ a {
+ text-decoration: none;
+ color: red;
+ font-weight:bold;
+ }
+}
+.fileset {
+     background-color: orange;  /* 背景色 */
+   color: white;              /* 文字色 */
+   border: 2px solid orange;  /* 枠線 */
+   border-radius: 3em;        /* 角丸 */
+   padding: 12px 9px;         /* 内側の余白 */
+   display: inline-block; 
 }
 .user_paper {
   background: image-url("user_paper.png") no-repeat center;
@@ -361,6 +385,12 @@ margin-left: 40px;
   margin: 50px;
   box-shadow: none;
 }
+.image_box {
+  margin: 20px;
+  float: right;
+  transform: rotate( 5deg );
+}
+
 .pen {
     background: image-url("edit_pen.png") no-repeat center;
   width:250px;
@@ -398,4 +428,8 @@ input, textarea {
       background:none;
     border:0;
     border-bottom: 3px solid;
+}
+.list_nav {
+    color: #bd910b;
+    background-color: #f3e782;
 }
