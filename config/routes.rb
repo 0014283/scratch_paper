@@ -13,7 +13,8 @@ Rails.application.routes.draw do
   root 'home#top'
 
   get 'home/top'
-  get 'home/about'
+  get 'users/admin_index'
+  get 'papers/admin_index'
 
 
 

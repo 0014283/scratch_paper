@@ -1,6 +1,7 @@
 class PapersController < ApplicationController
 
-	before_action :authenticate_user!, only:[:new, :create, :destroy]
+	before_action :authenticate_admin!, only:[:admin_index]
+	before_action :authenticate_user!, only:[:new, :create]
 
 	def index
 		@papers = Paper.all
@@ -65,7 +66,6 @@ class PapersController < ApplicationController
 		@paper.user_id = @user.id
 		if @paper.save
 			redirect_to my_list_user_path(@user.id)
-			flash[:notice]="-メモの投稿ができました-"
 		else
 			render :new
 		end
@@ -74,13 +74,23 @@ class PapersController < ApplicationController
 	def destroy
 		@paper = Paper.find(params[:id])
 		@user = @paper.user
-		if @paper.user_id == current_user.id
+		if admin_signed_in?
+			@paper.destroy
+			redirect_to papers_admin_index_path
+
+		elsif @paper.user_id == current_user.id
 			@paper.destroy
 			redirect_to my_list_user_path(@user.id)
 		else
 			render :index
 		end
 	end
+
+	def admin_index
+		@papers = Paper.all
+		@genres = Genre.all
+	end
+
 
 
 

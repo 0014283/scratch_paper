@@ -1,0 +1,36 @@
+
+<h1>投稿一覧</h1>
+<table  class="table-hover table orange">
+	<thead>
+		<tr>
+			<th>開始日</th>
+			<th>終了日</th>
+			<th>ジャンル</th>
+			<th>タイトル</th>
+			<th>内容</th>
+			<th>作成者</th>
+			<th>いいね数</th>
+			<th>気になる数</th>
+			<th>画像数</th>
+			<th>作成日</th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @papers.each do |paper| %>
+		<tr>
+			<td><%= paper.start_date %></td>
+			<td><%= paper.end_date %></td>
+			<td><% @genres.each do |genre| %><% if paper.genre_id == genre.id %><%= genre.name %><% end %><% end %></td>
+			<td><%= paper.title %></td>
+			<td><%= paper.content %></td>
+			<td><%= paper.user.name %></td>
+			<td><%= paper.likes.count %></td>
+			<td><%= paper.interests.count %></td>
+			<td><%= paper.paper_images.count %></td>
+			<td><%= paper.created_at %></td>
+			<td><%= link_to "削除", paper_path(paper.id), class: 'btn btn-danger', method: :delete, "data-confirm" => "本当に削除しますか？" %></td>
+		</tr>
+		<% end %>
+	</tbody>
+</table>

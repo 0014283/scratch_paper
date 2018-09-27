@@ -44,22 +44,15 @@
  border: 0;
  }
 
- .notice {
- text-align: center;
- color: green;
- font-size: 20px;
- background-color: white;
- border-radius: 5px;
- width: 260px;
- margin-bottom: 30px;
- }
-
  footer {
  margin-top: 50px;
  text-align: center;
  background-color: brown;
   a {
   font-size: 18px;
+  color: white;
+  }
+  span {
   color: white;
   }
  }
@@ -117,6 +110,10 @@
  .blue {
  color: blue;
  margin-right: 40px;
+ }
+
+ .orange {
+ background-color: orange;
  }
 
  .navbar {
@@ -328,10 +325,14 @@
  right: 40px;
  }
 
- .paper_user_name {
+ .paper_user_image {
  position: absolute;
- bottom: 50px;
+ bottom: 48px;
  left: 10px;
+ }
+
+ .maru {
+ border-radius: 50px;
  }
 
  .paper_date {

@@ -65,7 +65,7 @@
 				<%= link_to new_user_session_path do %><span class="glyphicon glyphicon-bookmark black" aria-hidden="true"><%= paper.interests.count %></span><% end %>
 			<% end %>
 		</span>
-		<%= link_to my_list_user_path(paper.user_id) do %><p  class="paper_user_name"><%= paper.user.name %></p><% end %>
+		<%= link_to my_list_user_path(paper.user_id) do %><span  class="paper_user_image"><%= attachment_image_tag paper.user, :user_image, :fill, 50, 50, format: 'jpeg', fallback: "no_image50x50.jpg", class:"maru" %><%= paper.user.name %></span><% end %>
 	</div>
 	<% end %>
 </div>

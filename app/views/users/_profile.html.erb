@@ -1,8 +1,5 @@
 
 <div  class="clearfix">
-	<% if flash[:notice] %>
-		<p class="notice"><%= flash[:notice] %></p>
-	<% end %>
 	<div  class=" profile_image">
 		<span  class="paper_pin profile_image_pin"></span><span  class="paper_pin profile_image_pin2"></span>
 		<%= attachment_image_tag @user, :user_image, :fill, 300, 300, format: 'jpeg', fallback: "no_image300x300.jpg" %>

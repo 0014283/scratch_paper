@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 
-	before_action :authenticate_user!, only:[:edit, :update,]
+	before_action :authenticate_user!, only:[:edit, :update]
+	before_action :authenticate_admin!, only:[:admin_index]
 
 	def my_list
 		@user= User.find(params[:id])
@@ -63,6 +64,23 @@ class UsersController < ApplicationController
 		else
 			render :edit
 		end
+	end
+
+	def destroy
+		@user = User.find(params[:id])
+		if admin_signed_in?
+			@user.destroy
+			redirect_to users_admin_index_path
+		elsif @user.id == current_user.id
+			@user.destroy
+			redirect_to root_path
+		else
+			redirect_to root_path
+		end
+	end
+
+	def admin_index
+		@users = User.all
 	end
 
 
