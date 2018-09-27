@@ -26,63 +26,85 @@
         <% end %>
       <div class="collapse navbar-collapse" id="navbarEexample">
         <ul class="nav navbar-right nav-pills">
-          <% if user_signed_in? %>
-          <li role="presentation">
-            <% if @path.is('papers#index') %>
-            <button type="button" class="navbar-btn tag tag_p">
-            <% else %>
-            <button type="button" class="navbar-btn tag">
-            <% end %>
-            <%= link_to papers_path do %><span  class="tag_pin"></span><P  class="length">投稿一覧</P><% end %></button>
-          </li>
-          <li role="presentation">
-            <% if @path.is('papers#new') %>
-            <button type="button" class="navbar-btn tag tag_p">
-            <% else %>
-            <button type="button" class="navbar-btn tag tag_w">
-            <% end %>
-            <%= link_to new_paper_path do %><span  class="tag_pin"></span><P  class="length">新規投稿</P><% end %></button>
-          </li>
-          <li role="presentation">
-            <% if @path.is('users')%>
-              <% if @user.id == current_user.id %>
-                <button type="button" class="navbar-btn tag tag_p">
+          <% if admin_signed_in? %>
+            <li role="presentation">
+              <% if @path.is('papers#admin_index') %>
+              <button type="button" class="navbar-btn tag tag_p">
               <% else %>
-                <button type="button" class="navbar-btn tag">
+              <button type="button" class="navbar-btn tag">
               <% end %>
-            <% else %>
-            <button type="button" class="navbar-btn tag">
-            <% end %>
-            <%= link_to my_list_user_path(current_user.id) do %><span  class="tag_pin"></span><P  class="length">マイページ</P><% end %></button>
-          </li>
-          <li role="presentation" >
-            <button type="button" class="navbar-btn tag tag_w"><%= link_to destroy_user_session_path, method: :delete do %><span  class="tag_pin"></span><P  class="length">ログアウト</P><% end %></button>
-          </li>
+              <%= link_to papers_admin_index_path do %><span  class="tag_pin"></span><P  class="length">投稿一覧</P><% end %></button>
+            </li>
+            <li role="presentation">
+              <% if @path.is('users#admin_index') %>
+              <button type="button" class="navbar-btn tag tag_p">
+              <% else %>
+              <button type="button" class="navbar-btn tag">
+              <% end %>
+              <%= link_to users_admin_index_path do %><span  class="tag_pin"></span><P  class="length">ユーザー一覧</P><% end %></button>
+            </li>
+            <li role="presentation" >
+              <button type="button" class="navbar-btn tag tag_w"><%= link_to destroy_admin_session_path, method: :delete do %><span  class="tag_pin"></span><P  class="length">ログアウト</P><% end %></button>
+            </li>
           <% else %>
-          <li role="presentation">
-            <% if @path.is('papers#index') %>
-            <button type="button" class="navbar-btn tag tag_p">
+            <% if user_signed_in? %>
+            <li role="presentation">
+              <% if @path.is('papers#index') %>
+              <button type="button" class="navbar-btn tag tag_p">
+              <% else %>
+              <button type="button" class="navbar-btn tag">
+              <% end %>
+              <%= link_to papers_path do %><span  class="tag_pin"></span><P  class="length">投稿一覧</P><% end %></button>
+            </li>
+            <li role="presentation">
+              <% if @path.is('papers#new') %>
+              <button type="button" class="navbar-btn tag tag_p">
+              <% else %>
+              <button type="button" class="navbar-btn tag tag_w">
+              <% end %>
+              <%= link_to new_paper_path do %><span  class="tag_pin"></span><P  class="length">新規投稿</P><% end %></button>
+            </li>
+            <li role="presentation">
+              <% if @path.is('users')%>
+                <% if @user.id == current_user.id %>
+                  <button type="button" class="navbar-btn tag tag_p">
+                <% else %>
+                  <button type="button" class="navbar-btn tag">
+                <% end %>
+              <% else %>
+              <button type="button" class="navbar-btn tag">
+              <% end %>
+              <%= link_to my_list_user_path(current_user.id) do %><span  class="tag_pin"></span><P  class="length">マイページ</P><% end %></button>
+            </li>
+            <li role="presentation" >
+              <button type="button" class="navbar-btn tag tag_w"><%= link_to destroy_user_session_path, method: :delete do %><span  class="tag_pin"></span><P  class="length">ログアウト</P><% end %></button>
+            </li>
             <% else %>
-            <button type="button" class="navbar-btn tag">
+            <li role="presentation">
+              <% if @path.is('papers#index') %>
+              <button type="button" class="navbar-btn tag tag_p">
+              <% else %>
+              <button type="button" class="navbar-btn tag">
+              <% end %>
+              <%= link_to papers_path do %><span  class="tag_pin"></span><P  class="length">投稿一覧</P><% end %></button>
+            </li>
+            <li role="presentation">
+              <% if @path.is('users/sessions#new') %>
+              <button type="button" class="navbar-btn tag tag_p">
+              <% else %>
+              <button type="button" class="navbar-btn tag tag_w">
+              <% end %>
+              <%= link_to new_user_session_path do %><span  class="tag_pin"></span><P  class="length">ログイン</P><% end %></button>
+            </li>
+            <li role="presentation">
+              <% if @path.is('users/registrations#new') %>
+              <button type="button" class="navbar-btn tag tag_p">
+              <% else %>
+              <button type="button" class="navbar-btn tag">
+              <% end %>
+              <%= link_to new_user_registration_path do %><span  class="tag_pin"></span><P  class="length">新規登録</P><% end %></button>
+            </li>
             <% end %>
-            <%= link_to papers_path do %><span  class="tag_pin"></span><P  class="length">投稿一覧</P><% end %></button>
-          </li>
-          <li role="presentation">
-            <% if @path.is('users/sessions#new') %>
-            <button type="button" class="navbar-btn tag tag_p">
-            <% else %>
-            <button type="button" class="navbar-btn tag tag_w">
-            <% end %>
-            <%= link_to new_user_session_path do %><span  class="tag_pin"></span><P  class="length">ログイン</P><% end %></button>
-          </li>
-          <li role="presentation">
-            <% if @path.is('users/registrations#new') %>
-            <button type="button" class="navbar-btn tag tag_p">
-            <% else %>
-            <button type="button" class="navbar-btn tag">
-            <% end %>
-            <%= link_to new_user_registration_path do %><span  class="tag_pin"></span><P  class="length">新規登録</P><% end %></button>
-          </li>
           <% end %>
         </ul>
     </nav>
@@ -93,6 +115,6 @@
     </div>
   </body>
   <footer>
-    <%= link_to "scratch paperとは", home_about_path %>
+    <span>&#169; ScratchPaper.</span>
   </footer>
 </html>

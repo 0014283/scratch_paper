@@ -28,7 +28,7 @@
 					<% unless @paper.end_date.blank? %><%= @paper.end_date.strftime("%Y年%-m月%-d日") %><% end %>
 				</h4>
 			</span>
-			<%= link_to my_list_user_path(@paper.user_id) do %><h4  class="paper_user_name"><%= @paper.user.name %></h4><% end %>
+			<h4><%= link_to my_list_user_path(@paper.user_id) do %><span  class="paper_user_image"><%= attachment_image_tag @paper.user, :user_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image100x100.jpg", class:"maru" %><%= @paper.user.name %></span><% end %></h4>
 			<span  class="images">
 				<h4>
 					<% if @paper.paper_images.count > 0 %>
