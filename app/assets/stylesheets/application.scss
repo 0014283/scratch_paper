@@ -28,7 +28,7 @@
  }
 
  body {
- background: image-url("colk.jpg");
+ background-image: url(/images/colk.jpg);
  }
 
  ul {
@@ -62,7 +62,7 @@
  }
 
  .scratch_paper_logo {
- padding: 0.5em 1em;
+ padding: 1em 1em;
  margin: 2em 0;
  color: #5d627b;
  background: #ffeb3b;
@@ -80,11 +80,13 @@
  }
 
  .sero {
- background: image-url("sero.png") no-repeat center;
+ background-image: url(/images/sero.png);
+ background-size: cover;
+ background-position: center;
  width: 70px;
- height: 55px;
+ height: 30px;
  position: absolute;
- top: -30px;
+ top: -18px;
  left: 10px;
  }
 
@@ -121,7 +123,9 @@
  }
 
  .tag {
- background: image-url("t.png") no-repeat center;
+ background-image: url(/images/t.png);
+ background-size: cover;
+ background-position: center;
  margin-right: 20px;
  width: 55px;
  height: 175px;
@@ -132,15 +136,21 @@
  }
 
  .tag_p {
- background: image-url("t_p.png") no-repeat center;
+ background-image: url(/images/t_p.png);
+ background-size: cover;
+ background-position: center;
  }
 
  .tag_w {
- background: image-url("t_w.png") no-repeat center;
+ background-image: url(/images/t_w.png);
+ background-size: cover;
+ background-position: center;
  }
 
  .tag_pin {
- background: image-url("pin.png") no-repeat center;
+ background-image: url(/images/pin.png);
+ background-size: cover;
+ background-position: center;
  width: 50px;
  height: 50px;
  position: absolute;
@@ -159,7 +169,9 @@
  padding: 30px;
  position: relative;
  box-shadow: 0 12px 14px rgba(0, 0, 0, 0.22);
- background: image-url("p.jpeg") no-repeat center;
+ background-image: url(/images/p.jpeg);
+ background-size: cover;
+ background-position: center;
  width: 1185px;
  height: 1200px;
  transform: rotate( -1deg );
@@ -183,7 +195,9 @@
  }
 
  .search {
- background: image-url("h_serach.png") no-repeat center;
+ background-image: url(/images/h_serach.png);
+ background-size: cover;
+ background-position: center;
  width: 600px;
  height: 40px;
  text-align: center;
@@ -192,14 +206,18 @@
  }
 
  .sero_y {
- background: image-url("sero_y.png") no-repeat center;
+ background-image: url(/images/sero_y.png);
+ background-size: cover;
+ background-position: center;
  top: -25px;
  left: -25px;
  transform: rotate( -35deg );
  }
 
  .sero_y2 {
- background: image-url("sero_y.png") no-repeat center;
+ background-image: url(/images/sero_y.png);
+ background-size: cover;
+ background-position: center;
  top: -25px;
  right: -25px;
  transform: rotate( 35deg );
@@ -245,7 +263,9 @@
 
  .cut {
  margin-top: 20px;
- background: image-url("cut.png") no-repeat center;
+ background-image: url(/images/cut.png);
+ background-size: cover;
+ background-position: center;
  width: 100px;
  height: 100px;
  position: absolute;
@@ -268,7 +288,9 @@
  }
 
  .paper_pin{
- background: image-url("pin.png") no-repeat center;
+ background-image: url(/images/pin.png);
+ background-size: cover;
+ background-position: center;
  width: 50px;
  height: 50px;
  position: absolute;
@@ -276,18 +298,24 @@
  }
 
  .pin_y{
- background: image-url("pin_y.png") no-repeat center;
+ background-image: url(/images/pin_y.png);
+ background-size: cover;
+ background-position: center;
  }
 
  .pin_b{
- background: image-url("pin_b.png") no-repeat center;
+ background-image: url(/images/pin_b.png);
+ background-size: cover;
+ background-position: center;
  }
 
  .profile_image_pin {
  width: 35px;
  height: 35px;
  top: -15px;
- background: image-url("profile_image_pin.png") no-repeat center;
+ background-image: url(/images/profile_image_pin.png);
+ background-size: cover;
+ background-position: center;
  }
 
  .profile_image_pin2 {
@@ -295,7 +323,9 @@
  height: 35px;
  top: -15px;
  right: 10px;
- background: image-url("profile_image_pin2.png") no-repeat center;
+ background-image: url(/images/profile_image_pin2.png);
+ background-size: cover;
+ background-position: center;
  }
 
  .list_nav {
@@ -382,7 +412,9 @@
  }
 
  .user_paper {
- background: image-url("user_paper.png") no-repeat center;
+ background-image: url(/images/user_paper.png);
+ background-size: cover;
+ background-position: center;
  width: 562px;
  height: 274px;
  float: left;
@@ -404,7 +436,9 @@
  }
 
  .h {
- background: image-url("h_p.png") no-repeat center;
+ background-image: url(/images/h_p.png);
+ background-size: cover;
+ background-position: center;
  width:234px;
  height:59px;
  padding: 17px 0 0 60px;
@@ -412,18 +446,24 @@
  }
 
  .h_b {
- background: image-url("h_b.png") no-repeat center;
+ background-image: url(/images/h_b.png);
+ background-size: cover;
+ background-position: center;
  }
 
  .h_g {
- background: image-url("h_g.png") no-repeat center;
+ background-image: url(/images/h_g.png);
+ background-size: cover;
+ background-position: center;
   p {
   font-size: 25px;
   }
  }
 
  .h_y {
- background: image-url("h_y.png") no-repeat center;
+ background-image: url(/images/h_y.png);
+ background-size: cover;
+ background-position: center;
  width: 120px;
  height: 30px;
  position: absolute;
@@ -435,7 +475,9 @@
  }
 
  .h_p_big {
- background: image-url("h_p_big.png") no-repeat center;
+ background-image: url(/images/h_p_big.png);
+ background-size: cover;
+ background-position: center;
  width: 470px;
  height: 120px;
  margin-top: 60px;
@@ -448,7 +490,9 @@
  }
 
  .h_b_big {
- background: image-url("h_b_big.png") no-repeat center;
+ background-image: url(/images/h_b_big.png);
+ background-size: cover;
+ background-position: center;
  width: 470px;
  height: 120px;
  margin-top: 60px;
@@ -481,7 +525,9 @@
  }
 
  .pen {
- background: image-url("edit_pen.png") no-repeat center;
+ background-image: url(/images/edit_pen.png);
+ background-size: cover;
+ background-position: center;
  width: 250px;
  height: 90px;
  position: relative;
@@ -503,7 +549,9 @@
  }
 
  .user_d {
- background: image-url("d.png") no-repeat center;
+ background-image: url(/images/d.png);
+ background-size: cover;
+ background-position: center;
  float: left;
  position: relative;
  transform: rotate( 20deg );

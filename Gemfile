@@ -79,10 +79,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
   gem 'jquery-turbolinks'
   # 論理削除用
   gem 'paranoia', '~> 2.3', '>= 2.3.1'
-  # デプロイ用
-  gem 'capistrano'
-  gem 'capistrano-bundler'
-  gem 'capistrano-rbenv'
-  gem 'capistrano-rails'
   # エラーメッセージ日本語化
   gem 'rails-i18n'
