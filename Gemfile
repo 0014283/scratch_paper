@@ -6,7 +6,7 @@ ruby '2.5.1'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.0'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+#gem 'sqlite3'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
@@ -44,6 +44,8 @@ group :development, :test do
   gem 'pry-doc'
   gem 'rspec-rails'
   gem 'factory_bot_rails'
+  gem 'sqlite3'
+  #テスト環境はrails備え付けのSQLite3に合わせる
 end
 
 group :development do
@@ -81,3 +83,8 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
   gem 'paranoia', '~> 2.3', '>= 2.3.1'
   # エラーメッセージ日本語化
   gem 'rails-i18n'
+
+  group :production do
+    gem 'pg'
+    #デプロイ環境はherokuを使うためPostgreSQLに合わせる。
+  end
